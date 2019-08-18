@@ -86,6 +86,13 @@ class _ProfilePageViewState extends State<ProfilePageView>
             return Stack(
               fit: StackFit.expand,
               children: <Widget>[
+                Container(
+                  color: Colors.black,
+                  child: Center(
+                      child: CircularProgressIndicator(
+                        valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+                      )),
+                ),
                 Image.asset(
                   profiles[index].imagePath,
                   fit: BoxFit.cover,

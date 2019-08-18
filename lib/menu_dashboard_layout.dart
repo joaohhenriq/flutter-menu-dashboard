@@ -84,8 +84,7 @@ class _MenuDashBoardLayoutState extends State<MenuDashBoardLayout>
                     CircleAvatar(
                       backgroundColor: Colors.grey[800],
                       radius: 50,
-                      backgroundImage: NetworkImage(
-                          "https://cdn.vox-cdn.com/thumbor/HBsde0sGqhkCCvF4nlGwwqt48q0=/0x0:5000x2950/1200x675/filters:focal(2293x288:3093x1088)/cdn.vox-cdn.com/uploads/chorus_image/image/65018663/Base.0.jpg"),
+                      backgroundImage: AssetImage("assets/images/user-photo.jpg"),
                     ),
                     SizedBox(
                       height: 20,
