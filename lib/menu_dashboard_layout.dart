@@ -58,53 +58,67 @@ class _MenuDashBoardLayoutState extends State<MenuDashBoardLayout>
   }
 
   Widget menu(context) {
-    return SlideTransition(
-      position: _slideAnimation,
-      child: ScaleTransition(
-        scale: _menuScaleAnimation,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundColor: Colors.grey[800],
-                  radius: 50,
-                  backgroundImage: NetworkImage(
-                      "https://image.redbull.com/rbcom/010/2017-02-16/1331845177820_2/0100/0/1/can-you-take-on-our-gold-quiz.jpg"),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage(
+              "assets/images/background.jpg",
+            ),
+            fit: BoxFit.cover),
+      ),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.black.withOpacity(0.79)),
+        child: SlideTransition(
+          position: _slideAnimation,
+          child: ScaleTransition(
+            scale: _menuScaleAnimation,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    CircleAvatar(
+                      backgroundColor: Colors.grey[800],
+                      radius: 50,
+                      backgroundImage: NetworkImage(
+                          "https://cdn.vox-cdn.com/thumbor/HBsde0sGqhkCCvF4nlGwwqt48q0=/0x0:5000x2950/1200x675/filters:focal(2293x288:3093x1088)/cdn.vox-cdn.com/uploads/chorus_image/image/65018663/Base.0.jpg"),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "Pantheon",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Ra’Horak, Targon",
+                      style: TextStyle(color: Colors.grey, fontSize: 14),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    menuItem(Icons.dashboard, "Dashboard", false),
+                    menuItem(Icons.message, "Messages", true),
+                    menuItem(Icons.info, "Biography", false),
+                    menuItem(Icons.event, "Events", false),
+                    menuItem(Icons.thumb_up, "Likes", false),
+                    SizedBox(
+                      height: 50,
+                    ),
+                    menuItem(Icons.input, "Log out", false),
+                  ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Rengar Lodbrok",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "Kiilash, Shuriman",
-                  style: TextStyle(color: Colors.grey, fontSize: 14),
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-                menuItem(Icons.dashboard, "Dashboard", true),
-                menuItem(Icons.message, "Messages", false),
-                menuItem(Icons.info, "Biography", false),
-                menuItem(Icons.event, "Events", false),
-                menuItem(Icons.thumb_up, "Likes", false),
-                SizedBox(height: 50,),
-                menuItem(Icons.input, "Log out", false),
-              ],
+              ),
             ),
           ),
         ),
@@ -119,18 +133,23 @@ class _MenuDashBoardLayoutState extends State<MenuDashBoardLayout>
           children: <Widget>[
             Icon(
               iconData,
-              color: isActive ? Colors.white : Colors.grey,
-              size: 23,
+              color: isActive ? Colors.white : Colors.grey[600],
+              size: isActive ? 24 : 20,
             ),
             SizedBox(width: 10),
             Text(
               text,
               style: TextStyle(
-                  color: isActive ? Colors.white : Colors.grey, fontSize: 16),
+                color: isActive ? Colors.white : Colors.grey[600],
+                fontSize: isActive ? 18 : 16,
+                fontWeight: isActive ? FontWeight.w600 : FontWeight.normal
+              ),
             ),
           ],
         ),
-        SizedBox(height: 18,)
+        SizedBox(
+          height: 18,
+        )
       ],
     );
   }
