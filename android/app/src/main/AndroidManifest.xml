@@ -8,7 +8,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_menu_dashboard"
+        android:label="Flutter Menu Dashboard"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
